@@ -221,7 +221,7 @@ async def generar_pdf(update, context):
                 pdf.image(act['foto_despues'], x + 95, y, 95, 60)
             
             pdf.set_font("Arial", 'B', 10)
-            pdf.set_fill_color(200, 230, 255)
+            pdf.set_fill_color(0, 0, 255)
             pdf.set_text_color(0, 51, 102)
             pdf.cell(190, 8, "CONCLUSIONES", 1, 1, 'L', fill=True)
             pdf.set_text_color(0, 0, 0)
