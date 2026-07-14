@@ -197,20 +197,33 @@ async def generar_pdf(update, context):
         
         for act in equipo['actividades']:
             pdf.set_font("Arial", 'B', 10)
+            pdf.set_fill_color(0, 0, 250)
+            pdf.set_text_color(0, 51, 102)
             pdf.cell(190, 8, "ACTIVIDAD", 1, 1, 'C', fill=True)
             pdf.set_font("Arial", '', 10)
+            pdf.set_text_color(0, 0, 0)
             pdf.multi_cell(190, 8, act['descripcion'])
             
+            pdf.set_font("Arial", 'B', 10)
+            pdf.set_fill_color(200, 230, 255)
+            pdf.set_text_color(0, 51, 102)
+            pdf.cell(95, 8, "ANTES", 1, 0, 'C', fill=True)
+            pdf.cell(95, 8, "DESPUÉS", 1, 1, 'C', fill=True)
+            pdf.set_text_color(0, 0, 0)
             y = pdf.get_y()
-            pdf.cell(95, 60, "ANTES", 1, 0, 'C')
-            pdf.cell(95, 60, "DESPUÉS", 1, 1, 'C')
+            x = pdf.get_x()
+            pdf.cell(95, 60, '', 1, 0)
+            pdf.cell(95, 60, '', 1, 1)
             if os.path.exists(act['foto_antes']):
-                pdf.image(act['foto_antes'], 15, y+7, 80, 30)
+                pdf.image(act['foto_antes'], x, y, 95, 60)
             if os.path.exists(act['foto_despues']):
-                pdf.image(act['foto_despues'], 110, y+7, 85, 30)
+                pdf.image(act['foto_despues'], x + 95, y, 95, 60)
             
             pdf.set_font("Arial", 'B', 10)
+            pdf.set_fill_color(200, 230, 255)
+            pdf.set_text_color(0, 51, 102)
             pdf.cell(190, 8, "CONCLUSIONES", 1, 1, 'L', fill=True)
+            pdf.set_text_color(0, 0, 0)
             pdf.set_font("Arial", '', 10)
             pdf.multi_cell(190, 8, act['conclusiones'])
             pdf.ln(5)
