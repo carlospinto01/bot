@@ -22,25 +22,24 @@ def asset_path(filename: str) -> str:
 # --- CLASE PDF ---
 class PDF_Informe(FPDF):
     def header(self):
-        if self.page_no() > 1:
-            self.set_draw_color(0, 0, 0)
-            self.rect(10, 10, 190, 20)
-            marca_path = asset_path('marca.png')
-            if os.path.exists(marca_path):
-                self.image(marca_path, 12, 12, 45, 16)
-            self.line(60, 10, 60, 30)
-            self.line(160, 10, 160, 30)
-            self.set_font('Arial', 'B', 12)
-            self.set_xy(60, 10)
-            self.cell(100, 20, 'INFORME SERVICIO TÉCNICO', 0, 0, 'C')
-            self.set_font('Arial', 'B', 8)
-            self.set_xy(160, 10)
-            self.cell(40, 6.66, 'CÓDIGO: ST-DR-01', 1, 2, 'L')
-            self.set_x(160)
-            self.cell(40, 6.66, 'EMISIÓN: 02/06/21', 1, 2, 'L')
-            self.set_x(160)
-            self.cell(40, 6.66, 'VERSIÓN: 01', 1, 0, 'L')
-            self.ln(25)
+        self.set_draw_color(0, 0, 0)
+        self.rect(10, 10, 190, 20)
+        marca_path = asset_path('marca.png')
+        if os.path.exists(marca_path):
+            self.image(marca_path, 12, 12, 45, 16)
+        self.line(60, 10, 60, 30)
+        self.line(160, 10, 160, 30)
+        self.set_font('Arial', 'B', 12)
+        self.set_xy(60, 10)
+        self.cell(100, 20, 'INFORME SERVICIO TÉCNICO', 0, 0, 'C')
+        self.set_font('Arial', 'B', 8)
+        self.set_xy(160, 10)
+        self.cell(40, 6.66, 'CÓDIGO: ST-DR-01', 1, 2, 'L')
+        self.set_x(160)
+        self.cell(40, 6.66, 'EMISIÓN: 02/06/21', 1, 2, 'L')
+        self.set_x(160)
+        self.cell(40, 6.66, 'VERSIÓN: 01', 1, 0, 'L')
+        self.ln(25)
 
     def footer(self):
         self.set_y(-30)
