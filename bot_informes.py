@@ -19,7 +19,7 @@ def asset_path(filename: str) -> str:
     return os.path.join(BASE_DIR, filename)
 
 
-# --- CLASE PDF ---
+# --- CLASE PDF ---hola
 class PDF_Informe(FPDF):
     def header(self):
         self.set_draw_color(0, 0, 0)
