@@ -153,6 +153,7 @@ async def generar_pdf(update, context):
     fecha_actual = datetime.now().strftime("%d/%m/%Y")
     # 1. PORTADA
     pdf.add_page()
+    pdf.header()
     pdf.set_font("Arial", 'B', 24)
     pdf.ln(80)
     pdf.cell(0, 20, "INFORME DE SERVICIO", 0, 1, 'R')
